@@ -1,0 +1,22 @@
+uuid: a4ade51a-9877-4a7d-9166-ad89ca92d128
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - lanacion
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: lanacion_messages
+theme: lanacion
+region: content
+weight: -3
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

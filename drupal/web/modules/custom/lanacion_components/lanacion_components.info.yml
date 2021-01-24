@@ -1,0 +1,6 @@
+name: La nacion Components
+type: module
+description: 'La nacion components helper module.'
+core_version_requirement: ^8.8 || ^9
+package: Custom
+

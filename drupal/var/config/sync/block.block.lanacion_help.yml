@@ -1,0 +1,22 @@
+uuid: 82f6efe5-b84d-4c7d-9316-697aa6aaa36d
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - lanacion
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: lanacion_help
+theme: lanacion
+region: content
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

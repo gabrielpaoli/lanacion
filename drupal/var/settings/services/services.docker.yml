@@ -1,0 +1,22 @@
+#
+# @file
+# Example for local Drupal services overrides.
+#
+# Copy this file to services.local.yml and load it using the 'container_yamls'
+# setting in settings.local.php
+#
+
+parameters:
+  # Twig debugging
+  twig.config:
+    debug: true
+    auto_reload: null
+    cache: true
+
+  # Cacheability debugging:
+  http.response.debug_cacheability_headers: true
+
+# A custom service that mocks a cache backend, but does not actually cache.
+services:
+  cache.backend.null:
+    class: Drupal\Core\Cache\NullBackendFactory

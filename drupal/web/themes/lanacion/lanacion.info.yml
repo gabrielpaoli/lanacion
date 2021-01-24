@@ -1,0 +1,20 @@
+name: La nacion
+type: theme
+description: La nacion theme.'
+package: Other
+core_version_requirement: ^8.8 || ^9
+libraries:
+  - lanacion/global-styling
+
+base theme: classy
+regions:
+  branding: Branding
+  navigation: Main navigation
+  search: Search
+  ads_header: Ads header
+  content: Content
+  right_sidebar: Right sidebar
+  footer_first: Footer First
+  footer_second: Footer Second
+  footer_third: Footer Third
+  footer_bottom: Footer Bottom

@@ -1,0 +1,13 @@
+/data
+/data/*
+/database
+/database/*
+.idea/*
+/drupal/web/core
+/drupal/web/modules/contrib
+/drupal/web/profiles/contrib
+/drupal/web/themes/contrib
+/drupal/web/sites/default/files
+/drupal/web/vendor
+/vendor
+/drupal/mysql

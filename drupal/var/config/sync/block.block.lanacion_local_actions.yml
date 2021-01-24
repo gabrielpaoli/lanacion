@@ -1,0 +1,20 @@
+uuid: 5a37e3a3-9ba8-4527-a1d2-e203a815c77c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - lanacion
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: lanacion_local_actions
+theme: lanacion
+region: content
+weight: 1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
