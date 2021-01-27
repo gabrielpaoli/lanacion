@@ -1,0 +1,10 @@
+uuid: 5b6abbb1-6e0c-458d-b622-e95548c9bc17
+langcode: en
+status: true
+dependencies: {  }
+id: p00_container_home_sections
+label: 'P00 container home sections'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

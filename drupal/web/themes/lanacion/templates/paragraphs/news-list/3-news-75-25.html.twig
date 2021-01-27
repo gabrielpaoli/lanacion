@@ -1,0 +1,25 @@
+<div class="column13">
+  <div class="newsIndividualItem bigPaddingRight">
+    <a href="{{ data.0.link }}">
+      <div class="title titleBig">{{ data.0.title }}</div>
+      <img alt="{{ data.0.image_alt }}" src="{{ file_url(data.0.image_url) }}" />
+    </a>
+  </div>
+</div>
+
+<div class="column7">
+  <div class="newsIndividualItem">
+    <a href="{{ data.1.link }}">
+      <img alt="{{ data.1.image_alt }}" src="{{ file_url(data.1.image_url) }}" />
+      <div class="title titleMedium">{{ data.1.title }}</div>
+    </a>
+  </div>
+
+  <div class="newsIndividualItem">
+    <a href="{{ data.2.link }}">
+      <img alt="{{ data.2.image_alt }}" src="{{ file_url(data.2.image_url) }}" />
+      <div class="title titleMedium">{{ data.2.title }}</div>
+    </a>
+  </div>
+</div>
+

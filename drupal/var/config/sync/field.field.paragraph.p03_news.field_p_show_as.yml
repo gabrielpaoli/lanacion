@@ -1,0 +1,21 @@
+uuid: 92833bd6-ca5f-4dbe-b57d-38e057b50de8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_show_as
+    - paragraphs.paragraphs_type.p03_news
+  module:
+    - options
+id: paragraph.p03_news.field_p_show_as
+field_name: field_p_show_as
+entity_type: paragraph
+bundle: p03_news
+label: 'Show as'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

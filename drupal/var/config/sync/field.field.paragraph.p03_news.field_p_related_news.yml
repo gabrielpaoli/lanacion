@@ -1,0 +1,29 @@
+uuid: a3a80caa-6f30-49db-8d83-6e9c401bdde1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_related_news
+    - node.type.article
+    - paragraphs.paragraphs_type.p03_news
+id: paragraph.p03_news.field_p_related_news
+field_name: field_p_related_news
+entity_type: paragraph
+bundle: p03_news
+label: 'Related news'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: 9b40474f-3979-4487-8f0b-647e598fd821
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_show_ads
+    - paragraphs.paragraphs_type.p00_container_home_sections
+id: paragraph.p00_container_home_sections.field_p_show_ads
+field_name: field_p_show_ads
+entity_type: paragraph
+bundle: p00_container_home_sections
+label: 'Show ads'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

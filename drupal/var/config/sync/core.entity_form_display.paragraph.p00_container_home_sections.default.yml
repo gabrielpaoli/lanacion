@@ -1,0 +1,37 @@
+uuid: 6e40331d-20a5-4767-a665-5452669d94f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.p00_container_home_sections.field_p_related_paragraph
+    - field.field.paragraph.p00_container_home_sections.field_p_show_ads
+    - paragraphs.paragraphs_type.p00_container_home_sections
+  module:
+    - paragraphs
+id: paragraph.p00_container_home_sections.default
+targetEntityType: paragraph
+bundle: p00_container_home_sections
+mode: default
+content:
+  field_p_related_paragraph:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_p_show_ads:
+    weight: 0
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  status: true

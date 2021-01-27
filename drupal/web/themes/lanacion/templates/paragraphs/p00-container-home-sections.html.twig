@@ -1,0 +1,30 @@
+<div class="newsContainer">
+
+  <div class="column14">
+
+    {% for news in data.news %}
+
+      <div class="containerNewsItem">
+        {% if(news.show_as == 3) %}
+          {% include '@lanacion/paragraphs/news-list/3-news-75-25.html.twig' with {data: news.news} %}
+        {% endif %}
+
+        {% if(news.show_as == 4) %}
+          {% include '@lanacion/paragraphs/news-list/3-news-33.html.twig' with {data: news.news} %}
+        {% endif %}
+
+      </div>
+    {% endfor %}
+
+  </div>
+
+
+  {% if(data.show_ads) %}
+    <div class="column6">
+      <div class="mockupAd">
+
+      </div>
+    </div>
+  {% endif %}
+
+</div>

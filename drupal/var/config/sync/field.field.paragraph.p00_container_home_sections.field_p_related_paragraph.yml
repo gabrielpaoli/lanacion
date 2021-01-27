@@ -1,0 +1,34 @@
+uuid: 07945523-b765-4251-b462-e1dd4e17f882
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_related_paragraph
+    - paragraphs.paragraphs_type.p00_container_home_sections
+    - paragraphs.paragraphs_type.p03_news
+  module:
+    - entity_reference_revisions
+id: paragraph.p00_container_home_sections.field_p_related_paragraph
+field_name: field_p_related_paragraph
+entity_type: paragraph
+bundle: p00_container_home_sections
+label: 'Related paragraph'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      p03_news: p03_news
+    target_bundles_drag_drop:
+      p00_container_home_sections:
+        weight: 4
+        enabled: false
+      p03_news:
+        enabled: true
+        weight: 3
+field_type: entity_reference_revisions

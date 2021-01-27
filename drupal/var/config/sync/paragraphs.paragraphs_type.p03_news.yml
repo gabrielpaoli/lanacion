@@ -1,0 +1,10 @@
+uuid: 8264d600-01a9-4fca-b6bd-923b5fb082f8
+langcode: en
+status: true
+dependencies: {  }
+id: p03_news
+label: 'P03 news'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
