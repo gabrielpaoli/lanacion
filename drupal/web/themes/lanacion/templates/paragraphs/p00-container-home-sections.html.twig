@@ -1,28 +1,27 @@
 <div class="newsContainer">
 
-  <div class="column14">
+  <div class="container principalMain ">
 
     {% for news in data.news %}
 
-      <div class="containerNewsItem">
+      <div class="grid grid-cols-1 grid-row-1 sm:grid-cols-3 mr-10">
         {% if(news.show_as == 3) %}
           {% include '@lanacion/paragraphs/news-list/3-news-75-25.html.twig' with {data: news.news} %}
         {% endif %}
-
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 mr-10 mt-5">
         {% if(news.show_as == 4) %}
           {% include '@lanacion/paragraphs/news-list/3-news-33.html.twig' with {data: news.news} %}
         {% endif %}
-
       </div>
     {% endfor %}
-
   </div>
 
 
   {% if(data.show_ads) %}
-    <div class="column6">
-      <div class="mockupAd">
-
+    <div class="adds">
+      <div class="mockupAd text-black">
+        <p>Espacio Cedido para la publicidad</p>
       </div>
     </div>
   {% endif %}

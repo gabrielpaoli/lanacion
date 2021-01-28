@@ -1,9 +1,8 @@
 {% for news in data %}
-  <div class="newsIndividualItem3-33">
+
     <a href="{{ news.link }}">
-      <img alt="{{ news.image_alt }}" src="{{ file_url(news.image_url) }}" />
+      <img alt="{{ news.image_alt }}" src="{{ file_url(news.image_url) }}" class="border border-gray-200"/>
       <div class="title titleBig">{{ news.title }}</div>
     </a>
-  </div>
 
 {% endfor %}
