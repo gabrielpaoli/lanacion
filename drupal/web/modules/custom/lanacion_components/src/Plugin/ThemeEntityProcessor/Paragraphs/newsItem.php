@@ -27,11 +27,27 @@ class newsItem extends LaNacionThemeEntityProcessorBase {
     $show_as = $variables['elements']['#paragraph']->get('field_p_show_as')->value;
     $news = $variables['elements']['#paragraph']->get('field_p_related_news')->referencedEntities();
 
+
     $variables['data'] = [
       'title' => $title,
       'show_as' => $show_as,
       'news' => $this->getNewsData($news),
+      'css_classes' => $this->getCssClasses($news, $show_as),
     ];
+
+  }
+
+  public function getCssClasses($news, $show_as){
+    $css_classes = '';
+
+    if($show_as[0] == 4){
+      if(sizeof($news)%3==0){
+        $css_classes = 'grid grid-cols-1 sm:grid-cols-3 gap-10 mr-10 mt-5';
+      }elseif(sizeof($news) == 4){
+        $css_classes = 'grid grid-cols-1 sm:grid-cols-4 gap-10 mr-10 mt-5 w-full';
+      }
+    }
+    return $css_classes;
 
   }
 
