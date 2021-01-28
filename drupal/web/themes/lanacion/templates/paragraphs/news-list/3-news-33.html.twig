@@ -1,8 +1,14 @@
-{% for news in data %}
+{% if(data.title) %}
+  <h4>{{data.title}}</h4>
+{% endif %}
 
+<div class="{{ data.css_classes }}">
+
+  {% for news in data.news %}
     <a href="{{ news.link }}">
-      <img alt="{{ news.image_alt }}" src="{{ file_url(news.image_url) }}" class="border border-gray-200"/>
-      <div class="title titleBig">{{ news.title }}</div>
-    </a>
+        <img alt="{{ news.image_alt }}" src="{{ file_url(news.image_url) }}" class="border border-gray-200"/>
+        <div class="title titleBig">{{ news.title }}</div>
+      </a>
+  {% endfor %}
 
-{% endfor %}
+</div>

@@ -1,24 +1,27 @@
-<div class="grid grid-cols-1 sm:col-span-2 sm:row-span-2 p-5 border-r border-gray-200">
-  <div class="newsIndividualItem bigPaddingRight">
-    <a href="{{ data.0.link }}">
-      <div class="text-3xl text-black font-bold">{{ data.0.title }}</div>
-      <img alt="{{ data.0.image_alt }}" src="{{ file_url(data.0.image_url) }}" />
-    </a>
+
+<div class="grid grid-cols-1 grid-row-1 sm:grid-cols-3 mr-10">
+
+  <div class="grid grid-cols-1 sm:col-span-2 sm:row-span-2 p-5 border-r border-gray-200">
+    <div class="newsIndividualItem bigPaddingRight">
+      <a href="{{ data.news.0.link }}">
+        <div class="text-3xl text-black font-bold">{{ data.news.0.title }}</div>
+        <img alt="{{ data.news.0.image_alt }}" src="{{ file_url(data.news.0.image_url) }}" />
+      </a>
+    </div>
   </div>
+
+    <div class="grid grid-cols-1 sm:col-span-1 gap-2 w-65 ml-5 p-2 border-b border-gray-200">
+      <a href="{{ data.news.1.link }}">
+        <img alt="{{ data.news.1.image_alt }}" src="{{ file_url(data.news.1.image_url) }}" />
+        <div class="text-md text-black font-bold">{{ data.news.1.title }}</div>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:row-span-1 w-65 ml-5 p-2 pt-5">
+      <a href="{{ data.news.2.link }}">
+        <img alt="{{ data.news.2.image_alt }}" src="{{ file_url(data.news.2.image_url) }}" />
+        <div class="text-md text-black font-bold">{{ data.news.2.title }}</div>
+      </a>
+    </div>
+
 </div>
-
-  <div class="grid grid-cols-1 sm:col-span-1 gap-2 w-65 ml-5 p-2 border-b border-gray-200">
-    <a href="{{ data.1.link }}">
-      <img alt="{{ data.1.image_alt }}" src="{{ file_url(data.1.image_url) }}" />
-      <div class="text-md text-black font-bold">{{ data.1.title }}</div>
-    </a>
-  </div>
-
-  <div class="grid grid-cols-1 sm:row-span-1 w-65 ml-5 p-2 pt-5">
-    <a href="{{ data.2.link }}">
-      <img alt="{{ data.2.image_alt }}" src="{{ file_url(data.2.image_url) }}" />
-      <div class="text-md text-black font-bold">{{ data.2.title }}</div>
-    </a>
-  </div>
-
-
