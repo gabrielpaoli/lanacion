@@ -43,6 +43,8 @@ class newsItem extends LaNacionThemeEntityProcessorBase {
     if($show_as[0] == 4){
       if(sizeof($news)%3==0){
         $css_classes = 'grid grid-cols-1 sm:grid-cols-3 gap-10 mr-10 mt-5';
+      }elseif(sizeof($news) == 2){
+        $css_classes = 'grid grid-cols-1 sm:grid-cols-2 gap-10 mr-10 mt-5';
       }elseif(sizeof($news) == 4){
         $css_classes = 'grid grid-cols-1 sm:grid-cols-4 gap-10 mr-10 mt-5 w-full';
       }
