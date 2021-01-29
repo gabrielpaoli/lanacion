@@ -4,4 +4,5 @@ global-styling:
     js/script.js: {}
   css:
     theme:
+      css/tailwind.min.css: {}
       css/style.css: {}
