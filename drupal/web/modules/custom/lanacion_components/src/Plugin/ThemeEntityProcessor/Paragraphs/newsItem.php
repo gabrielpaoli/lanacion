@@ -53,6 +53,8 @@ class newsItem extends LaNacionThemeEntityProcessorBase {
 
   public function getNewsData($news){
     $data = [];
+    $editor_name = '';
+    $uri_editor = '';
 
     foreach($news as $indNews){
       $url_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'. $indNews->id());
@@ -61,11 +63,25 @@ class newsItem extends LaNacionThemeEntityProcessorBase {
       $file = File::load($fid);
       $uri = $file->getFileUri();
 
+      $editor = $indNews->get('field_related_editor')->referencedEntities();
+
+      if(isset($editor[0])){
+        $editor_name = $editor[0]->getTitle();
+
+        $fid_editor = $editor[0]->get('field_image')->getValue()[0]['target_id'];
+
+        $file_editor = File::load($fid_editor);
+        $uri_editor = $file_editor->getFileUri();
+      }
+
+
       $data[] = [
         'title' => $indNews->getTitle(),
         'link' => $url_alias,
         'image_url' => $uri,
-        'image_alt' => $indNews->get('field_image')->getValue()[0]['alt']
+        'image_alt' => $indNews->get('field_image')->getValue()[0]['alt'],
+        'editor_name' => $editor_name,
+        'editor_image' => $uri_editor,
       ];
     }
 

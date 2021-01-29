@@ -26,6 +26,9 @@ settings:
     -
       value: '4'
       label: '3 news 33%'
+    -
+      value: '5'
+      label: Opinion
   allowed_values_function: ''
 module: options
 locked: false

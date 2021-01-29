@@ -1,0 +1,20 @@
+{% if(data.title) %}
+  <h4>{{data.title}}</h4>
+{% endif %}
+
+<div class="">
+  {% for key, news in data.news %}
+
+    {{ news.editor_name }}
+
+    <a href="{{ news.link }}">
+      {% if(key == 0) %}
+      <img alt="{{ news.image_alt }}" src="{{ file_url(news.image_url) }}" class="border border-gray-200"/>
+      {% else %}
+        <img alt="{{ news.editor_name }}" src="{{ file_url(news.editor_image) }}" />
+      {% endif %}
+      <div class="title titleBig">{{ news.title }}</div>
+    </a>
+  {% endfor %}
+
+</div>

@@ -1,0 +1,39 @@
+uuid: 6c8bc864-dd13-45a1-b0a1-70e5e7157e5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.editor.body
+    - field.field.node.editor.field_image
+    - node.type.editor
+  module:
+    - image
+    - text
+    - user
+id: node.editor.default
+targetEntityType: node
+bundle: editor
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

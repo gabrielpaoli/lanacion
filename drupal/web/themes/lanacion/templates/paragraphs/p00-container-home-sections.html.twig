@@ -9,7 +9,11 @@
       {% endif %}
 
       {% if(news.show_as == 4) %}
-          {% include '@lanacion/paragraphs/news-list/3-news-33.html.twig' with {data: news} %}
+        {% include '@lanacion/paragraphs/news-list/3-news-33.html.twig' with {data: news} %}
+      {% endif %}
+
+      {% if(news.show_as == 5) %}
+        {% include '@lanacion/paragraphs/news-list/opinion.html.twig' with {data: news} %}
       {% endif %}
 
     {% endfor %}
