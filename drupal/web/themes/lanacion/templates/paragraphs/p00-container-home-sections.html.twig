@@ -4,6 +4,10 @@
 
     {% for news in data.news %}
 
+      {% if(news.show_as == 0) %}
+        {% include '@lanacion/paragraphs/news-list/1-news-w-full.html.twig' with {data: news} %}
+      {% endif %}
+
       {% if(news.show_as == 3) %}
         {% include '@lanacion/paragraphs/news-list/3-news-75-25.html.twig' with {data: news} %}
       {% endif %}
