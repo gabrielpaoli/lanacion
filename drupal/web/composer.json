@@ -27,6 +27,7 @@
         "drupal/devel": "^4.1",
         "drupal/handlebars_theme_handler": "1.67",
         "drupal/paragraphs": "^1.12",
+        "kint-php/kint": "^3.3",
         "symfony/class-loader": "^3.4",
         "symfony/dependency-injection": "^4.4 || ^5.0",
         "symfony/event-dispatcher": "^4.4",

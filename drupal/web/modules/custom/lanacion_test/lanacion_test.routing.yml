@@ -1,0 +1,7 @@
+hello_world.content:
+  path: '/test'
+  defaults:
+    _controller: '\Drupal\lanacion_test\Controller\TestController::content'
+    _title: 'Test'
+  requirements:
+    _permission: 'access content'
