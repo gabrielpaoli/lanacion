@@ -4,6 +4,7 @@ namespace Drupal\lanacion_components\Plugin\ThemeEntityProcessor\Paragraphs;
 
 use Drupal\lanacion_components\Plugin\ThemeEntityProcessor\LaNacionThemeEntityProcessorBase;
 use Drupal\file\Entity\File;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Returns the structured data of an entity.
@@ -26,7 +27,7 @@ class newsItem extends LaNacionThemeEntityProcessorBase {
     $title = $this->getFieldData($variables['elements']['field_p_title']);
     $show_as = $variables['elements']['#paragraph']->get('field_p_show_as')->value;
     $news = $variables['elements']['#paragraph']->get('field_p_related_news')->referencedEntities();
-
+    
 
     $variables['data'] = [
       'title' => $title,
@@ -67,6 +68,8 @@ class newsItem extends LaNacionThemeEntityProcessorBase {
 
       $editor = $indNews->get('field_related_editor')->referencedEntities();
 
+      $pre_title = $indNews->get('field_pre_title')->value;
+
       if(isset($editor[0])){
         $editor_name = $editor[0]->getTitle();
 
@@ -84,6 +87,7 @@ class newsItem extends LaNacionThemeEntityProcessorBase {
         'image_alt' => $indNews->get('field_image')->getValue()[0]['alt'],
         'editor_name' => $editor_name,
         'editor_image' => $uri_editor,
+        'pre_title' => $pre_title,
       ];
     }
 
