@@ -2,11 +2,9 @@
   <a href="{{ data.news.0.link }}" >
     <div class="news-w-full w-full" style="background-image: url('{{ file_url(data.news.0.image_url) }}')">
       <div class="content-news-w-full">
-        <div class="tag-news-w-full">Acá va el Tag</div>
+        <div class="tag-news-w-full">{{data.news.0.tag}}</div>
         <div class="title-news-w-full">{{ data.news.0.pre_title }}<span><p>{{data.news.0.title}} </p></span></div>
-      </div>  
+      </div>
     </div>
   </a>
 </div>
-
-{{dump( data.news.0.tag_name )}}
