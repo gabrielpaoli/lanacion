@@ -1,5 +1,5 @@
-hello_world.content:
-  path: '/test'
+test.content:
+  path: '/test/{node}'
   defaults:
     _controller: '\Drupal\lanacion_test\Controller\TestController::content'
     _title: 'Test'
