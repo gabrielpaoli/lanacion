@@ -19,6 +19,7 @@ function lanacion_test_theme($existing, $type, $theme, $path) {
       'template' => 'test-custom-theme',
       'variables' => [
         'testData' => [],
+        'data' => [],
       ],
     ],
   ];
