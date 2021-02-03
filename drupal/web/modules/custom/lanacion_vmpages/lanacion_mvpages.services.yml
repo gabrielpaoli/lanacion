@@ -1,0 +1,4 @@
+services:
+  lanacion_mvpages.activation:
+    class: Drupal\experiences_activation\Services\Activation
+    arguments: ['@current_user', '@database', '@messenger', '@entity_type.manager']

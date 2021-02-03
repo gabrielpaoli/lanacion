@@ -7,6 +7,8 @@ $config['system.logging']['error_level'] = 'all';
 $config['system.performance']['cache']['page']['max_age'] = 0;
 $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 $settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['page'] = 'cache.backend.null';
+$settings['extension_discovery_scan_tests'] = FALSE;
 
 // Include services.
 $settings['container_yamls'][] = "/var/www/var/settings/services/services.docker.yml";

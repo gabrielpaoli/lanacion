@@ -1,0 +1,5 @@
+name: Most viewed pages
+type: module
+description: 'Module to track most viewed pages.'
+core_version_requirement: ^8.8 || ^9
+package: Custom
