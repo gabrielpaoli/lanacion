@@ -1,1 +1,213 @@
-{{ dump(data) }}
+<script src="https://kit.fontawesome.com/9ba09b913b.js" crossorigin="anonymous"></script>
+
+<div class="container-page-article">
+  
+  <h1 class="article-title"> {{ data.title }} </h1>
+
+  <section class="container-full-page">
+
+    <div class="container-article">
+
+      <img alt="{{ data.news.0.image_alt }}" src="{{ file_url(data.news.0.image_url) }}" /> 
+    
+      <div class="body-article">
+
+        <div class="date-social-article">
+          Date
+          <ul>
+            <li><a href="#"></a>Comentar</li>
+            <li><a href="#"></a>Me gusta</li>
+            <li><a href="#"></a>Compartir</li>
+          </ul>
+        </div>
+
+        {{ data.body | raw }}
+
+        <hr class="hr-article">
+
+        <div class="trust-proyect">
+          <span>Conforme a los criterios de<a href="#"><i class="fab fa-tumblr ml-2"></i> The Trust Proyect</a></span><span><a href="#" class="links-lightBlue">Más Información</a></span>
+        </div>
+
+        <hr class="hr-article">
+
+        <hr class="hr-article">
+
+        <div class="related-news">
+          Ademas
+          <div> Contenido con noticias relacionadas </div>
+        </div>
+
+        <div class="like-article">
+          <span>¿Te gustó esta nota? <a href="#"><i class="far fa-thumbs-up"></i></a></span><span><a href="#" class="links-lightBlue"><i class="far fa-comment mr-2"></i>Ver Comentarios(numero)</a></span>
+        </div>
+
+        <hr class="hr-article">
+
+        <div class="other-news">
+          Temas: | <a href="#" class="links-lightBlue">Pólitica</a> | <a href="#" class="links-lightBlue">Coronavirus</a>
+          <div class="buttons-other-news"> 
+            <button class="button-lightBlue">Tag 1</button>
+            <button class="button-lightBlue">Tag 2</button>
+            <button class="button-lightBlue">Tag 3</button>
+            <button class="button-lightBlue">Tag 4</button>
+          </div>  
+        </div>
+        
+        <div class="newsletter">
+          <div class="title-newsletter">
+            <h2><i class="far fa-envelope fa-2x mr-2"></i>Columnistas del día</h2>
+          </div>
+          <input type="email" placeholder="Ingresá tu e-mail"/> <button>RECIBIR EL NEWSLETTER</button>
+        </div>
+
+        <div class="interest-you">
+          <div>3-news-75-25</div>
+          <div>boxes</div>
+          <div>3-news-75-25</div>
+          <div>boxes</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container-ads-news">
+      <div class="first-ads">
+      Contenido destinado para el primer ads
+      </div>
+    </div>
+
+  </section>
+
+  <section class="random-news mt-5">
+    <div class="random-news-col1">
+      Columna 1
+      <div>
+        <img />
+        <p>Noticia Principal</p>
+      </div>
+      <div>
+        <p>Noticia 2</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 3</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 4</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 5</p>
+        <img />
+      </div>
+    </div>
+    <div class="random-news-col2">
+      Columna 2
+      <div>
+        <img />
+        <p>Noticia Principal</p>
+      </div>
+      <div>
+        <p>Noticia 2</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 3</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 4</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 5</p>
+        <img />
+      </div>
+    </div>
+    <div class="random-news-col3">
+      Columna 3
+      <div>
+        <img />
+        <p>Noticia Principal</p>
+      </div>
+      <div>
+        <p>Noticia 2</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 3</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 4</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 5</p>
+        <img />
+      </div>
+    </div>
+    <div class="random-news-col4">
+      Columna 4
+      <div>
+        <img />
+        <p>Noticia Principal</p>
+      </div>
+      <div>
+        <p>Noticia 2</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 3</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 4</p>
+        <img />
+      </div>
+      <div>
+        <p>Noticia 5</p>
+        <img />
+      </div>
+    </div>
+  </section>
+
+  <section class="comments-section">
+    <div class="comments-full">
+      <div class="comments-title">
+        <h2>ENVIÁ <strong>TU COMENTARIO</strong> <a href="#" class="links-lightBlue ml-2">Ver legales (dropdowns)</a></h2>
+      </div>
+
+      <div class="comment-info">
+        Para poder comentar tenés que ingresar con tu usuario de LA NACION.
+      </div>
+      
+      <p>(cantidad de comentarios totales)</p>
+
+      <div class="login-user-comment">
+        <button type="button" class="button-lightBlue">Ingresar </button>
+        <ul>
+          (Cant de personas siguiendo el comentario)
+              <li>u1</li>
+              <li>u2</li>
+              <li>u3</li>
+              <li>u4</li>  
+        </ul>
+        
+      </div>
+
+    </div>
+
+    <div class="container-ads-news">
+      <div class="first-ads">
+        Contenido destinado para el primer ads
+      </div>
+    </div>
+
+  </section>
+
+
+
+</div>
