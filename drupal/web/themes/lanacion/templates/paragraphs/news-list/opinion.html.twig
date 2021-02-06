@@ -1,20 +1,49 @@
 {% if(data.title) %}
-  <h4>{{data.title}}</h4>
+  <h4 class="mt-5 text-2xl">{{data.title}}</h4>
+  <hr class="max-w-screen-md">
 {% endif %}
-
-<div class="">
+<div class="grid grid-cols-3 grid-row-2 gap-9 grid-flow-col mr-10 mt-5">
   {% for key, news in data.news %}
 
-    {{ news.editor_name }}
-
-    <a href="{{ news.link }}">
       {% if(key == 0) %}
-      <img alt="{{ news.image_alt }}" src="{{ file_url(news.image_url) }}" class="border border-gray-200"/>
+      <a href="{{ news.link }}" class="row-span-2">
+          <figure class=>
+              <img alt="{{ news.image_alt }}" src="{{ file_url(news.image_url) }}" class="border border-gray-200 w-full object-cover"/>
+              <figcaptation class="font-bold text-xl">{{ news.title }}</figcaptation>
+              <span class="font-medium block text-gray-700">Por {{ news.editor_name }}</span>
+          </figure>
+      </a>
+      {% elseif(key == 1) %}
+      <a href="{{ news.link }}" class="">
+          <figure class="col-start-2 col-end-3 row-start-1 row-end-3 border border-grey-200 p-4">
+              <figcaptation class="text-lg">{{ news.title }}</figcaptation>
+              <div class="flex mt-3">
+                  <img alt="{{ news.editor_name }}" src="{{ file_url(news.editor_image) }}" class="rounded-full w-14 max-w-md"/>
+                  <span class="font-semibold my-auto text-gray-700 ml-2">{{ news.editor_name }}</span>
+            </div>
+          </figure>
+      </a>
+      {% elseif(key == 2) %}
+      <a href="{{ news.link }}" class="border border-grey-200 p-4">
+          <figure class="">
+              <figcaptation class="text-lg">{{ news.title }}</figcaptation>
+              <div class="flex mt-3">
+                  <img alt="{{ news.editor_name }}" src="{{ file_url(news.editor_image) }}" class="rounded-full w-14 object-scale-down "/>
+                  <span class="font-semibold my-auto text-gray-700 ml-2">{{ news.editor_name }}</span>
+              </div>
+          </figure>
+      </a>
       {% else %}
-        <img alt="{{ news.editor_name }}" src="{{ file_url(news.editor_image) }}" />
+      <a href="{{ news.link }}" class="border border-grey-200 row-span-2 p-4">
+          <figure class="">
+              <figcaptation class="font-bold text-xl">{{ news.title }}</figcaptation>
+              <div class="relative flex bottom-0 left-0">
+                  <img alt="{{ news.editor_name }}" src="{{ file_url(news.editor_image) }}" class="inline-block bottom-0 left-0"/>
+                  <span class="font-semibold my-auto text-gray-700 ml-2">{{ news.editor_name }}</span>
+              </div>
+          </figure>
+      </a>
       {% endif %}
-      <div class="title titleBig">{{ news.title }}</div>
-    </a>
   {% endfor %}
 
 </div>
