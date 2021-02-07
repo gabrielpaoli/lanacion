@@ -61,7 +61,7 @@ body{
   display: flex;
 }
 
-.adds{
+.ads{
   flex-basis: 30%;
   background-color: rgba(228, 161, 245, 0.247);
   flex-wrap: wrap;
@@ -230,25 +230,7 @@ body{
     justify-content: center;
 }
 
-.random-news-col1{
-    flex-direction: column;
-    flex-basis: 20%;
-    margin: 5px 5px;
-}
-
-.random-news-col2{
-    flex-direction: column;
-    flex-basis: 20%;
-    margin: 5px 5px;
-}
-
-.random-news-col3{
-    flex-direction: column;
-    flex-basis: 20%;
-    margin: 5px 5px;
-}
-
-.random-news-col4{
+.random-col{
     flex-direction: column;
     flex-basis: 20%;
     margin: 5px 5px;
@@ -256,12 +238,6 @@ body{
 
 .container-ads-news{
     display: flex;
-}
-
-.first-ads{
-    width: 100%;
-    background-color: cadetblue;
-    border: 2px solid goldenrod;
 }
 
 .comments-section{
@@ -284,7 +260,7 @@ body{
 .comment-info{
     width: 100%;
     font-size: 14px;
-    background-color: rgba(243, 243, 114, 0.685);
+    background-color: #FFFFBF;
     text-align: center;
     padding: 20px;
     margin: 20px 40px 20px 0; 
