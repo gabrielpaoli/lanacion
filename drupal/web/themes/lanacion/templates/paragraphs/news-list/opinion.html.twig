@@ -2,20 +2,20 @@
   <h4 class="mt-5 text-2xl">{{data.title}}</h4>
   <hr class="max-w-screen-md">
 {% endif %}
-<div class="grid grid-cols-3 grid-row-2 gap-9 grid-flow-col mr-10 mt-5">
+<div class="grid grid-cols-12 grid-row-2 gap-9 grid-flow-col mr-10 mt-5">
   {% for key, news in data.news %}
 
       {% if(key == 0) %}
-      <a href="{{ news.link }}" class="row-span-2">
-          <figure class=>
+      <a href="{{ news.link }}" class="col-span-5 row-span-2">
+          <figure>
               <img alt="{{ news.image_alt }}" src="{{ file_url(news.image_url) }}" class="border border-gray-200 w-full object-cover"/>
-              <figcaptation class="font-bold text-xl">{{ news.title }}</figcaptation>
+              <figcaptation class="block font-bold text-xl py-2">{{ news.title }}</figcaptation>
               <span class="font-medium block text-gray-700">Por {{ news.editor_name }}</span>
           </figure>
       </a>
       {% elseif(key == 1) %}
-      <a href="{{ news.link }}" class="">
-          <figure class="col-start-2 col-end-3 row-start-1 row-end-3 border border-grey-200 p-4">
+      <a href="{{ news.link }}" class="col-span-4">
+          <figure class="border border-grey-200 p-4">
               <figcaptation class="text-lg">{{ news.title }}</figcaptation>
               <div class="flex mt-3">
                   <img alt="{{ news.editor_name }}" src="{{ file_url(news.editor_image) }}" class="rounded-full w-14 max-w-md"/>
@@ -24,7 +24,7 @@
           </figure>
       </a>
       {% elseif(key == 2) %}
-      <a href="{{ news.link }}" class="border border-grey-200 p-4">
+      <a href="{{ news.link }}" class="border col-span-4 border-grey-200 p-4">
           <figure class="">
               <figcaptation class="text-lg">{{ news.title }}</figcaptation>
               <div class="flex mt-3">
@@ -34,11 +34,11 @@
           </figure>
       </a>
       {% else %}
-      <a href="{{ news.link }}" class="border border-grey-200 row-span-2 p-4">
-          <figure class="">
-              <figcaptation class="font-bold text-xl">{{ news.title }}</figcaptation>
-              <div class="relative flex bottom-0 left-0">
-                  <img alt="{{ news.editor_name }}" src="{{ file_url(news.editor_image) }}" class="inline-block bottom-0 left-0"/>
+      <a href="{{ news.link }}" class="flex border col-span-3 border-grey-200 row-span-2">
+          <figure class="flex flex-col justify-between">
+              <figcaptation class="font-bold text-2xl w-full p-4">{{ news.title }}</figcaptation>
+              <div class="relative flex">
+                  <img alt="{{ news.editor_name }}" src="{{ file_url(news.editor_image) }}" class="bottom-0 left-0 w-24"/>
                   <span class="font-semibold my-auto text-gray-700 ml-2">{{ news.editor_name }}</span>
               </div>
           </figure>
