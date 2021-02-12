@@ -42,6 +42,9 @@ class MostViewedPages {
     $this->entityTypeManager = $entity_type_manager;
   }
 
+  //TODO: agregar columna con el tid
+  //TODO: query para devolver 4 mas vistos
+
   public function saveNewView($nid){
     $qty = $this->getFinalQty($nid);
     $uid = $this->currentUser->getAccount()->id();
@@ -56,12 +59,27 @@ class MostViewedPages {
       ])
       ->execute();
 
+    //print_r($this->getFourPagesMV());
+
     \Drupal::messenger()->addMessage('sasa', 'status');
 
   }
 
   public function getFourPagesMV(){
+    //TODO: REVISASR QUERY
+    //TODO: CAMBIAR TIMESTAMP POR FECHA DECREACION DEL NODO
 
+    $actualTime = new DateTime();
+    $actualTime = $actualTime->getTimestamp();
+    $timeCompare = $actualTime - 600;
+
+    $query = $this->connection->select('most_viewed_pages', 'mvp')
+      ->fields('mvp', ['nid'])
+      ->condition('mvp.timestamp', $timeCompare, '>')
+      ->range(0,4)
+      ->orderBy('qty', 'ASC');
+
+    return $query->execute()->fetchAll();
   }
 
   private function getPartialQty($nid){
