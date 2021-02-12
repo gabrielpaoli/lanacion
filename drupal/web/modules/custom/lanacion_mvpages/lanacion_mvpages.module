@@ -3,9 +3,18 @@
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 
+
 /**
  * Implements hook_ENTITY_TYPE_view().
  */
 function lanacion_mvpages_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
-  //print_r($entity->getT);
+  $nid = $entity->id();
+  $mvp = \Drupal::service('lanacion_mvpages.mostviewedpages');
+
+  //TODO: Remove nid 2
+  if($nid != 2){
+    $mvp->saveNewView($nid);
+  }
+
+  //die('sasa');
 }

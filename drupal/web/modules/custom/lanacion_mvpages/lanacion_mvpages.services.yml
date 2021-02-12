@@ -1,0 +1,4 @@
+services:
+  lanacion_mvpages.mostviewedpages:
+    class: Drupal\lanacion_mvpages\Services\MostViewedPages
+    arguments: ['@current_user', '@database', '@messenger', '@entity_type.manager']
