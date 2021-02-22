@@ -46,8 +46,12 @@ class ArticleFull extends ThemeEntityProcessorBase {
   public function preprocessItemData(&$variables) {
     $node = $variables['elements']['#node'];
 
-
     $editor = $node->get('field_related_editor')->referencedEntities();
+
+    $mvp = \Drupal::service('lanacion_mvpages.mostviewedpages');
+    $relatedArticleNids = $mvp->getFourPagesMV($node);
+
+    $relatedArticles = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($relatedArticleNids);
 
     if(!empty($editor[0])){
       $editor_name = $editor[0]->getTitle();
@@ -57,6 +61,7 @@ class ArticleFull extends ThemeEntityProcessorBase {
 
     $variables['data'] = [
       'title' => $node->getTitle(),
+      'related_articles' => $relatedArticles,
       'body' =>  $body,
       'editor' => $editor_name
     ];

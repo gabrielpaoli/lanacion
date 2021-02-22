@@ -35,6 +35,12 @@ function lanacion_mvpages_schema()
         'not null' => TRUE,
         'default' => 0,
       ),
+      'tid' => array(
+        'description' => 'Taxonomy ID',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
       'timestamp' => array(
         'type' => 'int',
         'not null' => TRUE,

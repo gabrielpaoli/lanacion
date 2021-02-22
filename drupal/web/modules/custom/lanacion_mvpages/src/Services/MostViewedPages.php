@@ -42,26 +42,52 @@ class MostViewedPages {
     $this->entityTypeManager = $entity_type_manager;
   }
 
-  public function saveNewView($nid){
-    $qty = $this->getFinalQty($nid);
+  public function saveNewView($node){
+    $qty = $this->getFinalQty($node->id());
     $uid = $this->currentUser->getAccount()->id();
-    $timestamp = time();
+    $tid = $this->getTaxonomyId($node);
+    $timestamp = $node->getCreatedTime();
+
+    if($tid == null){
+      die('El nodo no tiene categoria asignada');
+    }
 
     $this->connection->merge('most_viewed_pages')
-      ->key('nid', $nid)
+      ->key('nid', $node->id())
       ->fields([
         'qty' => $qty,
         'uid' => $uid,
+        'tid' => $tid,
         'timestamp' => $timestamp
       ])
       ->execute();
 
-    \Drupal::messenger()->addMessage('sasa', 'status');
+    \Drupal::messenger()->addMessage('Guardado correctamente', 'status');
 
   }
 
-  public function getFourPagesMV(){
+  public function getFourPagesMV($node){
 
+    $nids = [];
+    $actualTime = new DateTime();
+    $actualTime = $actualTime->getTimestamp();
+    $timeCompare = $actualTime - 600;
+    $tid = $this->getTaxonomyId($node);
+
+    $query = $this->connection->select('most_viewed_pages', 'mvp')
+      ->fields('mvp', ['nid'])
+      //->condition('mvp.timestamp', $timeCompare, '>')
+      ->condition('mvp.tid', $tid, '=')
+      ->condition('mvp.nid', $node->id(), '<>')
+      ->range(0,4)
+      ->orderBy('qty', 'DESC');
+
+    $result = $query->execute();
+    foreach ($result as $record) {
+      $nids[] = $record->nid;
+    }
+
+    return $nids;
   }
 
   private function getPartialQty($nid){
@@ -83,6 +109,11 @@ class MostViewedPages {
     }
 
     return $total;
+  }
+
+  private function getTaxonomyId($node){
+    $tid = (!empty($node->get('field_tags')->target_id) ? $node->get('field_tags')->target_id : null);
+    return $tid;
   }
 
 

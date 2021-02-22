@@ -1,15 +1,21 @@
+
+{% for related_article in data.related_articles %}
+{% endfor %}
+
+
+
 <script src="https://kit.fontawesome.com/9ba09b913b.js" crossorigin="anonymous"></script>
 
 <div class="container-page-article">
-  
+
   <h1 class="article-title"> {{ data.title }} </h1>
 
   <section class="container-full-page">
 
     <div class="container-article">
 
-      <img alt="{{ data.news.0.image_alt }}" src="{{ file_url(data.news.0.image_url) }}" /> 
-    
+      <img alt="{{ data.news.0.image_alt }}" src="{{ file_url(data.news.0.image_url) }}" />
+
       <div class="body-article">
 
         <div class="date-social-article">
@@ -46,14 +52,14 @@
 
         <div class="other-news">
           Temas: | <a href="#" class="links-lightBlue">Pólitica</a> | <a href="#" class="links-lightBlue">Coronavirus</a>
-          <div class="buttons-other-news"> 
+          <div class="buttons-other-news">
             <button class="button-lightBlue">Tag 1</button>
             <button class="button-lightBlue">Tag 2</button>
             <button class="button-lightBlue">Tag 3</button>
             <button class="button-lightBlue">Tag 4</button>
-          </div>  
+          </div>
         </div>
-        
+
         <div class="newsletter">
           <div class="title-newsletter">
             <h2><i class="far fa-envelope fa-2x mr-2"></i>Columnistas del día</h2>
@@ -183,7 +189,7 @@
       <div class="comment-info">
         Para poder comentar tenés que ingresar con tu usuario de LA NACION.
       </div>
-      
+
       <p>(cantidad de comentarios totales)</p>
 
       <div class="login-user-comment">
@@ -193,9 +199,9 @@
               <li>u1</li>
               <li>u2</li>
               <li>u3</li>
-              <li>u4</li>  
+              <li>u4</li>
         </ul>
-        
+
       </div>
 
     </div>

@@ -9,12 +9,11 @@ use Drupal\Core\Entity\EntityInterface;
  */
 function lanacion_mvpages_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
   $nid = $entity->id();
+  $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
   $mvp = \Drupal::service('lanacion_mvpages.mostviewedpages');
 
-  //TODO: Remove nid 2
-  if($nid != 2){
-    $mvp->saveNewView($nid);
+  if($node->getType() == 'article'){
+    $mvp->saveNewView($node);
   }
 
-  //die('sasa');
 }
