@@ -49,9 +49,19 @@ class ArticleFull extends ThemeEntityProcessorBase {
     $editor = $node->get('field_related_editor')->referencedEntities();
 
     $mvp = \Drupal::service('lanacion_mvpages.mostviewedpages');
-    $relatedArticleNids = $mvp->getFourPagesMV($node);
+
+    $relatedArticleNids = $mvp->getPagesMV($node);
+    $relatedArticleNidsLifestyle = $mvp->getPagesMV($node, 3, 4);
+    $relatedArticlesNidsEconomia = $mvp->getPagesMV($node, 4, 4);
+    $relatedArticleNidsOtrosTemas = $mvp->getPagesMV($node, 4);
 
     $relatedArticles = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($relatedArticleNids);
+
+    $relatedArticleLifestyle = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($relatedArticleNidsLifestyle);
+
+    $relatedArticlesEconomia = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($relatedArticlesNidsEconomia);
+
+    $relatedArticleOtrosTemas = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($relatedArticleNidsOtrosTemas);
 
     if(!empty($editor[0])){
       $editor_name = $editor[0]->getTitle();
@@ -61,13 +71,51 @@ class ArticleFull extends ThemeEntityProcessorBase {
 
     $variables['data'] = [
       'title' => $node->getTitle(),
-      'related_articles' => $relatedArticles,
+      'related_articles' => $this->orderRelatedArticles($relatedArticles),
+      'lifestyle_articles' => $this->orderRelatedArticles($relatedArticleLifestyle),
+      'economia_articles' => $this->orderRelatedArticles($relatedArticlesEconomia),
+      'others_articles' => $this->orderRelatedArticles($relatedArticleOtrosTemas),
       'body' =>  $body,
       'editor' => $editor_name
     ];
-
+    
   }
 
+  private function orderRelatedArticles($relatedArticles) {
+    $data = [];
+
+    foreach ($relatedArticles as $article) {
+      $id = $article->id();
+      $title = $article->getTitle();
+      $image = $this->getImage($article);
+      $url_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'. $id);
+      
+
+      $data[] = [
+        'title' => $title,
+        'image' => $image,
+        'url_alias' => $url_alias
+      ];
+    }
+
+    return $data;
+  }
+
+  private function getImage($article){
+    $imageArray = [];
+
+    $image = (!empty($article->get('field_image')->getValue()[0]) ? $article->get('field_image')->getValue()[0]['target_id'] : null);
+
+    if(!empty($image)){
+      $file = File::load($image);
+      $imageArray = [
+        'uri' => $file->getFileUri(),
+        'alt' => $article->get('field_image')->getValue()[0]['alt']
+      ];
+    }
+
+    return $imageArray;
+  }
 
 
 }
