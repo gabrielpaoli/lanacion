@@ -1,6 +1,5 @@
 
-{% for related_article in data.related_articles %}
-{% endfor %}
+
 
 
 
@@ -85,99 +84,38 @@
 
   </section>
 
-  <section class="random-news mt-5">
+  <section class="random-news">
     <div class="random-col">
-      Columna 1
-      <div>
-        <img />
-        <p>Noticia Principal</p>
-      </div>
-      <div>
-        <p>Noticia 2</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 3</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 4</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 5</p>
-        <img />
-      </div>
+    {% for related_article in data.related_articles %}
+      <a href={{ related_article.url_alias }}>
+        <img alt="{{ related_article.image.alt }}" src="{{ file_url(related_article.image.uri) }}"/>
+        <p>{{ related_article.title }}</p>
+      </a>  
+    {% endfor %}
     </div>
     <div class="random-col">
-      Columna 2
-      <div>
-        <img />
-        <p>Noticia Principal</p>
-      </div>
-      <div>
-        <p>Noticia 2</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 3</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 4</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 5</p>
-        <img />
-      </div>
+      {% for lifestyle_article in data.lifestyle_articles %}
+        <a href={{ lifestyle_article.url_alias }}>
+          <img alt="{{ lifestyle_article.image.alt }}" src="{{ file_url(lifestyle_article.image.uri) }}"/>
+          <p>{{ lifestyle_article.title }}</p> 
+        </a>  
+      {% endfor %}
     </div>
     <div class="random-col">
-      Columna 3
-      <div>
-        <img />
-        <p>Noticia Principal</p>
-      </div>
-      <div>
-        <p>Noticia 2</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 3</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 4</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 5</p>
-        <img />
-      </div>
+     {% for economia_article in data.economia_articles %}
+        <a href={{ economia_article.url_alias }}>
+          <img alt="{{ economia_article.image.alt }}" src="{{ file_url(economia_article.image.uri) }}"/>
+          <p>{{ economia_article.title }}</p> 
+        </a>  
+      {% endfor %}
     </div>
     <div class="random-col">
-      Columna 4
-      <div>
-        <img />
-        <p>Noticia Principal</p>
-      </div>
-      <div>
-        <p>Noticia 2</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 3</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 4</p>
-        <img />
-      </div>
-      <div>
-        <p>Noticia 5</p>
-        <img />
-      </div>
-    </div>
+     {% for others_article in data.others_articles %}
+        <a href={{ others_article.url_alias }}>
+          <img alt="{{ others_article.image.alt }}" src="{{ file_url(others_article.image.uri) }}"/>
+          <p>{{ others_article.title }}</p> 
+        </a>  
+      {% endfor %}
   </section>
 
   <section class="comments-section">

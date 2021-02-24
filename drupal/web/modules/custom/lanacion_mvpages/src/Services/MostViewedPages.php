@@ -7,6 +7,7 @@ use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Messenger\Messenger;
 use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\node\Plugin\views\argument\Nid;
 
 /**
  * Class Activation
@@ -66,20 +67,22 @@ class MostViewedPages {
 
   }
 
-  public function getFourPagesMV($node){
+  public function getPagesMV($node, $rangeQty=4, $tid=null){
 
     $nids = [];
     $actualTime = new DateTime();
     $actualTime = $actualTime->getTimestamp();
     $timeCompare = $actualTime - 600;
-    $tid = $this->getTaxonomyId($node);
+    if(empty($tid)){
+      $tid = $this->getTaxonomyId($node);
+    }
 
     $query = $this->connection->select('most_viewed_pages', 'mvp')
       ->fields('mvp', ['nid'])
       //->condition('mvp.timestamp', $timeCompare, '>')
       ->condition('mvp.tid', $tid, '=')
       ->condition('mvp.nid', $node->id(), '<>')
-      ->range(0,4)
+      ->range(0, $rangeQty)
       ->orderBy('qty', 'DESC');
 
     $result = $query->execute();
@@ -116,5 +119,13 @@ class MostViewedPages {
     return $tid;
   }
 
+  // TODO: DELETE THIS METHOD
+  private function deleteRow($nid, $qty) {
+    $query = $this->connection->delete('most_viewed_pages');
+    $query->condition('nid', $nid);
+    $query->condition('qty', $qty);
+    $query->execute();
+  }
 
+  // TODO: 
 }

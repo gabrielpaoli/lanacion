@@ -226,14 +226,18 @@ body{
 .random-news{
     width: 100%;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    flex-flow: row nowrap;
 }
 
 .random-col{
-    flex-direction: column;
+    display: flex;
     flex-basis: 20%;
-    margin: 5px 5px;
+    flex-direction: column;
+    margin: 20px 20px;
+}
+
+.random-col a{
+    width: 100%;
 }
 
 .container-ads-news{
