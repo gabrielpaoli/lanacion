@@ -49,6 +49,7 @@ class MostViewedPages {
     $tid = $this->getTaxonomyId($node);
     $timestamp = $node->getCreatedTime();
 
+    //TODO: REMOVE
     if($tid == null){
       die('El nodo no tiene categoria asignada');
     }

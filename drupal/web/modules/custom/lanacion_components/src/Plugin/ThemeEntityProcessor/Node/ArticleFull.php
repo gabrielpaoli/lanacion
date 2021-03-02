@@ -63,6 +63,8 @@ class ArticleFull extends ThemeEntityProcessorBase {
 
     $relatedArticleOtrosTemas = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($relatedArticleNidsOtrosTemas);
 
+    $image = $this->getImage($node);
+
     if(!empty($editor[0])){
       $editor_name = $editor[0]->getTitle();
     }
@@ -76,7 +78,8 @@ class ArticleFull extends ThemeEntityProcessorBase {
       'economia_articles' => $this->orderRelatedArticles($relatedArticlesEconomia),
       'others_articles' => $this->orderRelatedArticles($relatedArticleOtrosTemas),
       'body' =>  $body,
-      'editor' => $editor_name
+      'editor' => $editor_name,
+      'article_image' => $image
     ];
     
   }
