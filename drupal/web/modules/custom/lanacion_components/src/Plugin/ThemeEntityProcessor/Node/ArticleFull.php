@@ -7,6 +7,7 @@ use Drupal\handlebars_theme_handler\Plugin\ThemeEntityProcessorBase;
 use Drupal\handlebars_theme_handler\Plugin\ThemeEntityProcessorManager;
 use Drupal\handlebars_theme_handler\Plugin\ThemeFieldProcessorManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Returns the structured data of an entity.
@@ -75,7 +76,7 @@ class ArticleFull extends ThemeEntityProcessorBase {
       'lifestyle_articles' => $this->orderRelatedArticles($relatedArticleLifestyle),
       'economia_articles' => $this->orderRelatedArticles($relatedArticlesEconomia),
       'others_articles' => $this->orderRelatedArticles($relatedArticleOtrosTemas),
-      'body' =>  $body,
+      'body' => $body,
       'editor' => $editor_name
     ];
     
@@ -89,12 +90,15 @@ class ArticleFull extends ThemeEntityProcessorBase {
       $title = $article->getTitle();
       $image = $this->getImage($article);
       $url_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'. $id);
+      $term = (!empty($article->get('field_tags')->target_id) ? Term::load($article->get('field_tags')->target_id) : null);
+      $term_name = (!empty($term) ? $term->getName() : null);
       
 
       $data[] = [
         'title' => $title,
         'image' => $image,
-        'url_alias' => $url_alias
+        'url_alias' => $url_alias,
+        'term_name' => $term_name
       ];
     }
 

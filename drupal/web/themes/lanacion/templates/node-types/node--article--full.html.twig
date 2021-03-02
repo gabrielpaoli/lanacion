@@ -1,8 +1,4 @@
 
-
-
-
-
 <script src="https://kit.fontawesome.com/9ba09b913b.js" crossorigin="anonymous"></script>
 
 <div class="container-page-article">
@@ -87,6 +83,7 @@
   <section class="random-news">
     <div class="random-col">
     {% for related_article in data.related_articles %}
+    <h2>{{ related_article.term_name }}</h2>
       <a href={{ related_article.url_alias }}>
         <img alt="{{ related_article.image.alt }}" src="{{ file_url(related_article.image.uri) }}"/>
         <p>{{ related_article.title }}</p>
@@ -95,6 +92,7 @@
     </div>
     <div class="random-col">
       {% for lifestyle_article in data.lifestyle_articles %}
+      <h2>{{ lifestyle_article.term_name }}</h2>
         <a href={{ lifestyle_article.url_alias }}>
           <img alt="{{ lifestyle_article.image.alt }}" src="{{ file_url(lifestyle_article.image.uri) }}"/>
           <p>{{ lifestyle_article.title }}</p> 
@@ -103,6 +101,7 @@
     </div>
     <div class="random-col">
      {% for economia_article in data.economia_articles %}
+     <h2>{{ economia_article.term_name }}</h2>
         <a href={{ economia_article.url_alias }}>
           <img alt="{{ economia_article.image.alt }}" src="{{ file_url(economia_article.image.uri) }}"/>
           <p>{{ economia_article.title }}</p> 
@@ -111,6 +110,7 @@
     </div>
     <div class="random-col">
      {% for others_article in data.others_articles %}
+     <h2>{{ others_article.term_name }}</h2>
         <a href={{ others_article.url_alias }}>
           <img alt="{{ others_article.image.alt }}" src="{{ file_url(others_article.image.uri) }}"/>
           <p>{{ others_article.title }}</p> 
